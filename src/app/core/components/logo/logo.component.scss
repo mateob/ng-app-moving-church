@@ -1,0 +1,34 @@
+.logo-container-position {
+  top: 60px;
+  left: 80px;
+}
+
+.logo-container {
+  position: absolute;
+  transition: all 0.8s ease;
+
+  &.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 30;
+  }
+
+  img {
+    height: 140px;
+    transition: height 0.8s ease;
+    opacity: 0;
+    animation: slideImgOp 2s ease forwards;
+    transform: translate(-40%, 0);
+  }
+
+  .small-logo {
+    height: 60px;
+  }
+}
+
+@keyframes slideImgOp {
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

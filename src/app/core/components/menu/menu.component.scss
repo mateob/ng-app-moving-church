@@ -1,0 +1,49 @@
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow:
+    -1px 0 black,
+    0 2px black,
+    2px 0 black,
+    0 -1px black;
+}
+
+.glass-navbar {
+  background-color: rgba(255, 255, 255, 0.1); // Cor de fundo transparente com efeito de vidro
+  backdrop-filter: blur(10px); // Ajuste o blur conforme desejado
+  -webkit-backdrop-filter: blur(10px); // Suporte para navegadores mais antigos
+  border-radius: 10px; // Ajuste o raio da borda conforme desejado
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+$base-delay: 0.2s;
+
+@for $i from 1 through 10 {
+  .slide-in:nth-child(#{$i}) {
+    animation-delay: $i * $base-delay;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

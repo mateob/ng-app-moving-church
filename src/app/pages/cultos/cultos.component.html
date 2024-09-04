@@ -1,0 +1,17 @@
+<div class="card-container">
+  <h1>Cultos e Horarios</h1>
+  <div class="row">
+    <div class="card-animation col" *ngFor="let item of cardList">
+      <moch-card-flip [img]="item.imgBg">
+        <div class="p-1 text-light" front>
+          <h2 class="py-3">{{item.front.title}}</h2>
+          <div class="p-2">{{item.front.subTitle}}</div>
+          <div [innerHTML]="item.front.content"></div>
+        </div>
+        <div class="p-1 text-light" back>
+          <h2>Parte de tras</h2>
+        </div>
+      </moch-card-flip>
+    </div>
+  </div>
+</div>
