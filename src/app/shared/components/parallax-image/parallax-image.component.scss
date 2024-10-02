@@ -24,6 +24,8 @@
   z-index: 1;
   animation: slideImgIp 2s ease forwards;
   transform: translate(-20%, -20%);
+  transform: skewX(10deg) translateX(150px);
+  transform-origin: bottom right;
 }
 
 .parallax-shadow {

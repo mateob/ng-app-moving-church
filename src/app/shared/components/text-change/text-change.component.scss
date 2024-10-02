@@ -1,0 +1,30 @@
+/* Estilos SCSS */
+.rotating-text {
+  font-family: "Lato", sans-serif; /* Ou a fonte de sua preferência */
+  font-size: 36px;
+  color: white;
+  display: flex;
+  padding-left: 30%;
+}
+
+.rotating-text p {
+  margin: 5px;
+}
+
+.rotating-text span {
+  white-space: nowrap; /* Impede que o texto dentro do span quebre em várias linhas */
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-20px); /* Posição inicial acima */
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s ease; /* Transições suaves */
+}
+
+.letter.in {
+  opacity: 1;
+  transform: translateY(0); /* Posição final */
+}

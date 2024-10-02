@@ -4,11 +4,17 @@ import { NgModule } from '@angular/core';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
 import { CultosComponent } from './cultos/cultos.component';
+import { InformationComponent } from './information/information.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
 
 
 @NgModule({
   declarations: [
-    CultosComponent
+    CultosComponent,
+    InformationComponent,
+    TimelineComponent,
+    BlogpostComponent
   ],
   imports: [
     CommonModule,

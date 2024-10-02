@@ -1,0 +1,13 @@
+<div class="page-timeline">
+  <div class="container-timeline">
+    <div class="entries">
+      <div class="entry" *ngFor="let data of timeLineData">
+        <div class="title" [ngClass]="[data.big ? 'big' : '']">{{data.year}}
+          <div [innerHTML]="data.icon"></div>
+        </div>
+        <div class="body" [innerHTML]="data.content">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

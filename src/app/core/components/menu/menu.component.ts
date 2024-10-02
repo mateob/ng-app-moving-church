@@ -11,9 +11,11 @@ export class MenuComponent {
   menuItems: MenuItem[] = [
     { text: 'Home', route: '#' },
     { text: 'Horarios', route: '#cultos' },
-    { text: 'Sobre', route: '#sc1' },
+    { text: 'Sobre', route: 'pages/information' },
+    { text: 'Nossa Historia', route: 'pages/timeline' },
     { text: 'Eventos', route: '#sc2' },
-    { text: 'Envolva-se', route: '#sc3' },
+    { text: 'Blog', route: 'pages/blog' },
+    { text: 'Envolva-se', route: '' },
     { text: 'Contato', route: '#' }
   ];
 

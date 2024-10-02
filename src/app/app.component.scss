@@ -10,3 +10,16 @@ section {
 html {
   scroll-behavior: smooth;
 }
+
+.page-container {
+  padding-top: 60px;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

@@ -2,23 +2,29 @@
   padding: 60px 20px 0px 20px;
 }
 
-.card-animation {
-  animation: slideImgUp 2.5s ease forwards;
-  transform: translateY(100%);
-  opacity: 0;
+.card-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+  grid-gap: 20px;
 }
 
-$base-delay: 0.2s;
+// .card-animation {
+//   animation: slideImgUp 2.5s ease forwards;
+//   transform: translateY(100%);
+//   opacity: 0;
+// }
 
-@for $i from 1 through 10 {
-  .card-animation:nth-child(#{$i}) {
-    animation-delay: $i * $base-delay;
-  }
-}
+// $base-delay: 0.2s;
 
-@keyframes slideImgUp {
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
+// @for $i from 1 through 10 {
+//   .card-animation:nth-child(#{$i}) {
+//     animation-delay: $i * $base-delay;
+//   }
+// }
+
+// @keyframes slideImgUp {
+//   to {
+//     opacity: 1;
+//     transform: translate(0, 0);
+//   }
+// }

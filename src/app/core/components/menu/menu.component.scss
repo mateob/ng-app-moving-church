@@ -1,9 +1,15 @@
+.menu-container {
+  height: 180px;
+  z-index: 1001;
+}
+
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 nav li {
@@ -30,7 +36,7 @@ nav a {
 .slide-in {
   opacity: 0;
   transform: translateX(100%);
-  animation: slideIn 0.5s ease-out forwards;
+  animation: slideIn 1s ease-out forwards;
 }
 
 $base-delay: 0.2s;
