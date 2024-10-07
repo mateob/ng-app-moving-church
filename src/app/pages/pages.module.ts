@@ -7,6 +7,7 @@ import { CultosComponent } from './cultos/cultos.component';
 import { InformationComponent } from './information/information.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
+import { MessageTransitionComponent } from './message-transition/message-transition.component';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { BlogpostComponent } from './blogpost/blogpost.component';
     CultosComponent,
     InformationComponent,
     TimelineComponent,
-    BlogpostComponent
+    BlogpostComponent,
+    MessageTransitionComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     PagesRoutingModule
   ],
-  exports: [CultosComponent]
+  exports: [CultosComponent, MessageTransitionComponent]
 })
 export class PagesModule {}

@@ -1,11 +1,20 @@
-<moch-logo></moch-logo>
-<moch-menu></moch-menu>
-<moch-go-to-home></moch-go-to-home>
-<div class="page-container">
-  <router-outlet></router-outlet>
-</div>
-<div class="text-bg-dark container-fluid">
-  <div class="container py-4">
-    <h1>Footer</h1>
+<div class="grid-container">
+  <div class="grid-area-header">
+    <moch-logo></moch-logo>
+    <moch-menu></moch-menu>
+    <moch-go-to-home></moch-go-to-home>
+  </div>
+  <div class="page-container grid-area-body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="text-bg-dark container-fluid grid-area-footer">
+    <div class="container py-4 footer-container">
+      <div class="footer-col">colum 1</div>
+      <div class="footer-col">colum 2</div>
+      <div class="footer-col">colum 3</div>
+      <div class="footer-col">colum 4</div>
+      <div class="footer-col">colum 5</div>
+      <div class="footer-col">colum 6</div>
+    </div>
   </div>
 </div>
