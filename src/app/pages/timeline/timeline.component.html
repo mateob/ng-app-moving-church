@@ -1,0 +1,13 @@
+<div class="timeline">
+  <div class="timeline-line"></div>
+  <div *ngFor="let item of timelineItems; let i = index" class="timeline-item"
+    [ngClass]="[item.side || (i % 2 === 0 ? 'left' : 'right'), item.type]">
+    <div class="timeline-item-content">
+      <div class="timeline-item-title">
+        <span class="timeline-item-icon" *ngIf="item.icon">
+          <i class="fa {{ item.icon }}"></i> </span> {{ item.title }}
+      </div>
+      <div class="timeline-item-text" [innerHTML]="item.text"></div>
+    </div>
+  </div>
+</div>

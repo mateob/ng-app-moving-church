@@ -1,0 +1,8 @@
+<div class="marquee">
+  <div *ngFor="let item of mensagens" class="marquee-content glass-backgroud" [ngStyle]="{
+    '--duration': item.duration+'s',
+    '--delay': item.delay+'s',
+    '--top': item.top+'px',
+    '--index': item.zIndex}">
+  </div>
+</div>

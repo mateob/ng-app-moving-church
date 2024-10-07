@@ -1,0 +1,11 @@
+<div class="flip-card" (mouseover)="isFlipped = true" (mouseleave)="isFlipped = false">
+  <div class="flip-card-inner" [class.flipped]="isFlipped">
+    <div class="flip-card-front border border-5 rounded-3 border-secondary-subtle"
+      style="--bs-border-opacity: .5; background-size: cover;" [ngStyle]="{'background-image': 'url(' + imgUrl + ')'}">
+      <ng-content select="[front]"></ng-content>
+    </div>
+    <div class="flip-card-back border border-5 rounded-3 border-secondary-subtle" style="--bs-border-opacity: .5;">
+      <ng-content select="[back]"></ng-content>
+    </div>
+  </div>
+</div>
