@@ -1,0 +1,57 @@
+section {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Animação de rolagem suave */
+html {
+  scroll-behavior: smooth;
+}
+
+.grid-container {
+  display: grid;
+  grid-template:
+    "header"
+    "body"
+    "footer";
+}
+
+.grid-area-header {
+  grid-area: header;
+}
+
+.grid-area-body {
+  grid-area: body;
+}
+
+.grid-area-footer {
+  grid-area: footer;
+}
+
+.page-container {
+  padding-top: 120px;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding-left: 10%;
+  padding-right: 10%;
+  align-items: center;
+
+  .footer-col {
+    text-align: center;
+  }
+}

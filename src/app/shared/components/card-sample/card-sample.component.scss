@@ -1,0 +1,150 @@
+:root {
+  --surface-color: #fff;
+  --curve: 60;
+}
+
+.card-container {
+  margin: 10px;
+  position: relative;
+  padding: 10px;
+  height: 100%;
+  min-height: 380px;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  border: solid 2px white;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-gap: 10px;
+  transition: transform 0.5s ease-in-out;
+  perspective: 500px;
+  transform-origin: center bottom;
+
+  &:hover {
+    transform: rotateX(35deg);
+  }
+}
+
+.card-image {
+  --bs-border-opacity: 0.5;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  background-color: #6a515e;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: 20px;
+  background-color: #fff;
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+  perspective: 800px;
+}
+
+.card-container:hover .card-overlay {
+  transform: translateY(0);
+}
+
+.card-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  border-radius: 20px;
+  background-color: #fff;
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card-container:hover .card-header {
+  transform: translateY(0);
+}
+
+.card-thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card-title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+  color: #6a515e;
+}
+
+.card-tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card-status {
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card-description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #d7bdca;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.container {
+  position: relative; // Para posicionar a div interna
+  width: 350px;
+  height: 400px; // Largura do container (ajuste conforme necessário)
+
+  overflow: hidden;
+
+  .top-div {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #ccc;
+    transform: translateY(calc(100% + 20px));
+    transition: transform 0.8s ease-in-out;
+  }
+
+  &:hover .top-div {
+    transform: translateY(10px);
+  }
+
+  .bottom-div {
+    position: absolute;
+    top: 60px; // Inicialmente atrás da div superior
+    left: 0;
+    height: 250px;
+    width: 100%;
+    background-color: #999;
+    transform: translateY(calc(100% + 10px)); // Esconde a div e adiciona 10px de espaçamento
+    transition: transform 0.7s ease-in-out; // Adiciona uma transição suave
+    opacity: 0; // Torna a div invisível inicialmente
+  }
+
+  &:hover .bottom-div {
+    transform: translateY(10px); // Mostra a div no hover
+    opacity: 1; // Torna a div visível no hover
+  }
+}
