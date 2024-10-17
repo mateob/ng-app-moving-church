@@ -33,7 +33,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: './dist/<nome-do-projeto>' # Substitua <nome-do-projeto> pelo nome da sua aplicação
+        path: './dist/ng-app-moving-church' # Substitua <nome-do-projeto> pelo nome da sua aplicação
 
     - name: Deploy to GitHub Pages
       id: deployment
