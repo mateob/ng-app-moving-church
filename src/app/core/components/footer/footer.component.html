@@ -1,0 +1,21 @@
+<div class="footer-container container-fluid grid-area-footer">
+  <div class="footer-info">
+    <div class="footer-info-image">Logo</div>
+    <div class="footer-info-church">
+      <h1>Descrição</h1>
+      <p>Informações</p>
+    </div>
+    <div class="footer-info-address">
+      <h1>Onde nos localizamos:</h1>
+      <p>Endereço</p>
+    </div>
+  </div>
+  <div class="footer-columns">
+    <div class="footer-col" *ngFor="let data of [1,2,3]">
+      <h1>Titulo</h1>
+      <div class="footer-columns-link" *ngFor="let item of [1,2,3,4,5]">
+        <a href="">{{item}}</a>
+      </div>
+    </div>
+  </div>
+</div>

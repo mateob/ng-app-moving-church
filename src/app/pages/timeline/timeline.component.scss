@@ -1,0 +1,101 @@
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+
+  &-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    border: solid;
+    background-color: #ddd;
+    z-index: 1; // garante que a linha fique atrás dos itens
+  }
+
+  &-item {
+    position: relative;
+    clear: both;
+    z-index: 2; // garante que os itens fiquem na frente da linha
+
+    &:after {
+      content: "";
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 2; // garante que o ponto fique na frente da linha
+    }
+
+    &-content {
+      position: relative;
+      padding: 15px;
+      border-radius: 5px;
+      z-index: 2; // garante que o conteúdo fique na frente da linha
+    }
+
+    &-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 26px;
+    }
+
+    &-icon {
+      margin-right: 5px;
+    }
+
+    &.left {
+      text-align: left;
+      width: 50%;
+      left: calc(50% - 5px);
+
+      &:after {
+        left: 5px;
+      }
+
+      .timeline-item-content {
+        margin-left: 20px;
+      }
+    }
+
+    &.right {
+      text-align: right;
+      width: calc(50% + 5px);
+
+      &.big {
+        &:after {
+          right: -15px;
+        }
+      }
+      &.small {
+        &:after {
+          right: -5px;
+        }
+      }
+
+      .timeline-item-content {
+        margin-right: 20px;
+      }
+    }
+
+    &.big {
+      &:after {
+        top: 36px;
+        width: 20px;
+        height: 20px;
+        border: solid 4px #fff;
+        background-color: rgba(33, 37, 41, 1) !important;
+      }
+    }
+
+    &.small {
+      &:after {
+        top: 34px;
+        width: 10px;
+        height: 10px;
+        border: solid 4px #fff;
+      }
+    }
+  }
+}
