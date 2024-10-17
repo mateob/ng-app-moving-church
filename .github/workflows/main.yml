@@ -38,7 +38,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: ./dist/<nome-do-projeto>
+        path: ./dist/ng-app-moving-church
 
     - name: Deploy to GitHub Pages
       id: deployment
