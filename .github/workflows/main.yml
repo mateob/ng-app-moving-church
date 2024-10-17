@@ -5,6 +5,11 @@ on:
     branches:
       - main  # Substitua pela sua branch principal, se necessário
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,7 +22,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
- # Use a versão do Node.js compatível com seu projeto
 
     - name: Install dependencies
       run: npm install
@@ -31,9 +35,10 @@ jobs:
         enablement: true
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
-        path: './dist/ng-app-moving-church' # Substitua <nome-do-projeto> pelo nome da sua aplicação
+        name: dist
+        path: './dist/ng-app-moving-church'
 
     - name: Deploy to GitHub Pages
       id: deployment
