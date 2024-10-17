@@ -1,0 +1,38 @@
+name: Deploy Angular app to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Substitua pela sua branch principal, se necessário
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+ # Use a versão do Node.js compatível com seu projeto
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build --prod --base-href "/<nome-do-repositorio>/"
+
+    - name: Deploy
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: './dist/<nome-do-projeto>' # Substitua <nome-do-projeto> pelo nome da sua aplicação
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
