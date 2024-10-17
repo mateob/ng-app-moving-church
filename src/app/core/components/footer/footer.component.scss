@@ -1,0 +1,54 @@
+.footer {
+  &-container {
+    display: grid;
+    grid-template-columns: 30% auto;
+    padding: 3em;
+  }
+
+  &-info {
+    display: grid;
+    padding: 10px;
+
+    & h1 {
+      font-size: 22px;
+    }
+
+    & p {
+      font-size: 16px;
+    }
+
+    &-image {
+      padding: 10px;
+    }
+
+    &-church {
+      width: auto;
+      height: 100px;
+    }
+
+    &-address {
+      width: auto;
+      height: 100px;
+    }
+  }
+
+  &-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding-left: 10%;
+    padding-right: 10%;
+
+    & h1 {
+      font-size: 22px;
+    }
+  }
+}
+
+.footer-container {
+  margin-top: 60px;
+
+  .footer-col {
+    text-align: left;
+    margin-bottom: 6px;
+  }
+}

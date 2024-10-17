@@ -9,6 +9,8 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { CoreModule } from './core/core.module';
 import { IndexComponent } from './index/index.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './core/interceptor/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { IndexComponent } from './index/index.component';
     PagesModule,
     CoreModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,13 +4,15 @@
   overflow: hidden;
   position: relative;
   white-space: nowrap;
+  color: #fff;
 
   &-content {
     right: -300px;
     width: 300px;
     height: 90px;
+    padding: 6px 8px;
     border-radius: 15px;
-    border: solid 4px #fff;
+    border: solid 2px #fff;
     position: absolute;
     animation: moveItems var(--duration) var(--delay) linear infinite;
     top: var(--top);
@@ -21,21 +23,43 @@
       z-index: 12;
       animation-play-state: paused;
     }
+  }
 
-    &.title {
-    }
-    &.message {
-    }
-    &.author {
-    }
+  &-title {
+    width: 70%;
+    float: left;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &-message {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+  &-author {
+    padding: 2px;
+    width: 30%;
+    float: right;
+    text-align: right;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @keyframes moveItems {
     0% {
       transform: translateX(100vw);
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
     }
     100% {
       transform: translateX(calc(-300px - 100vw));
+      opacity: 0;
     }
   }
 }

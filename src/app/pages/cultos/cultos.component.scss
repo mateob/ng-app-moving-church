@@ -8,6 +8,11 @@
   grid-gap: 20px;
 }
 
+.calendar-container {
+  display: inline-flex;
+  gap: 20px;
+}
+
 // .card-animation {
 //   animation: slideImgUp 2.5s ease forwards;
 //   transform: translateY(100%);

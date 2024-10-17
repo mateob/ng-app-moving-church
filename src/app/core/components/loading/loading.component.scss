@@ -1,0 +1,215 @@
+.loading {
+  &-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-border {
+    &-last {
+      position: absolute;
+      width: calc(100% - 15vw);
+      height: calc(100% - 15vh);
+      border: solid 6px #fff;
+      left: 7.5vw;
+      top: 7.5vh;
+      animation: slideInBLast 12s ease-in-out infinite;
+    }
+
+    &-first {
+      position: absolute;
+      width: calc(100% - 24vw);
+      height: calc(100% - 28vh);
+      border: solid 6px #fff;
+      left: 12vw;
+      top: 14vh;
+      animation: slideInBfirst 12s ease-in-out infinite;
+    }
+  }
+
+  &-title {
+    &-container {
+      content: none;
+    }
+
+    &-primary {
+      font-size: 10vw;
+      text-align: left;
+      position: relative;
+      animation: slideInRtL 12s ease-in-out infinite;
+      text-shadow:
+        4px 4px 0 #000,
+        -4px 4px 0 #000,
+        4px -4px 0 #000,
+        -4px -4px 0 #000;
+
+      @media screen and (max-width: 768px) {
+        font-size: 12vw;
+      }
+
+      @media screen and (min-width: 1025px) {
+        font-size: 8vw;
+      }
+    }
+    &-secondary {
+      font-size: 6vw;
+      text-align: left;
+      margin-top: calc(-7vh);
+      animation: slideInLtR 12s ease-in-out infinite;
+      text-shadow:
+        4px 4px 0 #000,
+        -4px 4px 0 #000,
+        4px -4px 0 #000,
+        -4px -4px 0 #000;
+
+      @media screen and (max-width: 768px) {
+        font-size: 7.4vw;
+        margin-top: calc(-5vh);
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 900px) {
+        font-size: 6vw;
+        margin-top: calc(-5vh);
+      }
+
+      @media screen and (min-width: 901px) and (max-width: 1024px) {
+        font-size: 6vw;
+        margin-top: calc(-6vh);
+      }
+
+      @media screen and (min-width: 1025px) {
+        font-size: 5vw;
+        margin-top: calc(-6vw);
+      }
+    }
+  }
+
+  &-sub {
+    &-title {
+      font-size: 4vw;
+      text-align: left;
+      margin-top: calc(-4vh);
+      margin-left: 7.5vw;
+      animation: slideInRtL 12s ease-in-out infinite;
+      text-shadow:
+        4px 4px 0 #000,
+        -4px 4px 0 #000,
+        4px -4px 0 #000,
+        -4px -4px 0 #000;
+
+      @media screen and (max-width: 768px) {
+        font-size: 5vw;
+        margin-top: calc(-3vh);
+        margin-left: 7vw;
+      }
+
+      @media screen and (min-height: 769px) and (max-width: 900px) {
+        font-size: 4vw;
+        margin-top: calc(-3vh);
+        margin-left: 7vw;
+      }
+
+      @media screen and (min-width: 901px) and (max-width: 1024px) {
+        font-size: 4vw;
+        margin-top: calc(-3.5vh);
+        margin-left: 7vw;
+      }
+
+      @media screen and (min-width: 1025px) {
+        font-size: 3.5vw;
+        margin-top: calc(-3.5vh);
+        margin-left: 6vw;
+      }
+    }
+  }
+}
+
+@keyframes slideInRtL {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLtR {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBLast {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: rotate(-35deg);
+    left: 48vw;
+    top: 30vh;
+    width: calc(18vw);
+    height: calc(40vh);
+    opacity: 1;
+  }
+  80% {
+    transform: rotateY(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBfirst {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: rotate(-31deg);
+    left: 50vw;
+    top: 34vh;
+    width: calc(14vw);
+    height: calc(32vh);
+    opacity: 1;
+  }
+  80% {
+    transform: rotateY(-26deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 0;
+  }
+}

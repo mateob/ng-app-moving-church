@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 interface IMessage {
   title: string;
   message: string;
+  author: string;
   id: string;
   duration?: number;
   delay?: number;
@@ -17,11 +18,11 @@ interface IMessage {
 })
 export class MessageTransitionComponent {
   mensagens: IMessage[] = [
-    { title: 'Titulo 1', message: 'Message 1', id: '1' },
-    { title: 'Titulo 2', message: 'Message 2', id: '2' },
-    { title: 'Titulo 3', message: 'Message 3', id: '3' },
-    { title: 'Titulo 4', message: 'Message 4', id: '4' },
-    { title: 'Titulo 5', message: 'Message 5', id: '5' },
+    { title: 'Titulo 1', message: 'Message 1', id: '1', author: 'teste' },
+    { title: 'Titulo 2', message: 'Message 2', id: '2', author: 'teste' },
+    { title: 'Titulo 3', message: 'Message 3', id: '3', author: 'teste' },
+    { title: 'Titulo 4', message: 'Message 4', id: '4', author: 'teste' },
+    { title: 'Titulo 5', message: 'Message 5', id: '5', author: 'teste' },
   ];
   ngOnInit() {
     this.mensagens.forEach((t) => {
