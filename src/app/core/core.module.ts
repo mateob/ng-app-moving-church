@@ -5,16 +5,19 @@ import { LogoComponent } from './components/logo/logo.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GoToHomeComponent } from './components/go-to-home/go-to-home.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SocialComponent } from './components/social/social.component';
 
 const ComponentList: any[] = [
   LogoComponent,
   MenuComponent,
   GoToHomeComponent,
-  LoadingComponent
+  LoadingComponent,
+  FooterComponent
 ]
 
 @NgModule({
-  declarations: [ComponentList],
+  declarations: [ComponentList, SocialComponent],
   imports: [CommonModule],
   exports: [ComponentList]
 })
