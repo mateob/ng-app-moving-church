@@ -25,3 +25,7 @@ Execute `ng e2e` para rodar os testes end-to-end através da plataforma de sua e
 ## Ajuda
 
 Para ter mais ajuda em como utilizar o CLI do Angular execute `ng help` ou confira a página [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+
+
+Futuro
