@@ -40,11 +40,6 @@ jobs:
         name: dist
         path: ./dist/<nome-do-projeto>
 
-    - name: Aguardar processamento do artifact
-      uses: actions/delay@v1
-      with:
-        seconds: 30
-
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@v3
