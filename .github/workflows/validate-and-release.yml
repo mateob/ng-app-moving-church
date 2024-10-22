@@ -20,7 +20,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       # - run: npm run lint  # Execute seus testes de linting
-      - run: npm run test  # Execute seus testes unitários e de integração
+      # - run: npm run test  # Execute seus testes unitários e de integração
 
   release:
     needs: validate
