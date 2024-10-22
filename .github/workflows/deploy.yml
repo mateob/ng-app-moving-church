@@ -21,10 +21,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build -- --base-href /ng-app-moving-church/
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: ./dist/ng-app-moving-church
+          publish_dir: ./dist/ng-app-moving-church/browser/
