@@ -7,6 +7,7 @@ import { GoToHomeComponent } from './components/go-to-home/go-to-home.component'
 import { LoadingComponent } from './components/loading/loading.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SocialComponent } from './components/social/social.component';
+import { RouterModule } from '@angular/router';
 
 const ComponentList: any[] = [
   LogoComponent,
@@ -18,7 +19,7 @@ const ComponentList: any[] = [
 
 @NgModule({
   declarations: [ComponentList, SocialComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [ComponentList]
 })
 export class CoreModule {}
