@@ -11,6 +11,7 @@ import { IndexComponent } from './index/index.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './core/interceptor/loader.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AppRoutingModule,
     NgbModule,
     SharedModule,
+    PagesModule,
     CoreModule
   ],
   providers: [
