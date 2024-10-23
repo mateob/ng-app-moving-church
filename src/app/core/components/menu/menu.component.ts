@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
-export interface MenuItem { text: string; route: string }
+export interface MenuItem { text: string; type: 'route' | 'section', route?: string, section?: string }
 
 @Component({
   selector: 'moch-menu',
@@ -9,19 +10,29 @@ export interface MenuItem { text: string; route: string }
 })
 export class MenuComponent {
   menuItems: MenuItem[] = [
-    { text: 'Home', route: '#' },
-    { text: 'Horarios', route: '#cultos' },
-    { text: 'Sobre', route: '/#/pages/information' },
-    { text: 'Nossa Historia', route: '/#/pages/timeline' },
-    { text: 'Eventos', route: '#sc2' },
-    { text: 'Blog', route: '/#/pages/blog' },
-    { text: 'Envolva-se', route: '' },
-    { text: 'Contato', route: '#' }
+    { text: 'Home', type: 'route', route: 'home' },
+    { text: 'Horarios', type: 'section', route: 'home', section: 'cultos' },
+    { text: 'Sobre', type: 'route', route: 'pages/information' },
+    { text: 'Nossa Historia', type: 'route', route: 'pages/timeline' },
+    { text: 'Eventos', type: 'section', route: 'home', section: 'sc2' },
+    { text: 'Blog', type: 'route', route: 'pages/blog' },
+    { text: 'Envolva-se', type: 'section', route: 'home', section: 'message' },
+    { text: 'Contato', type: 'section', route: 'home', section: '' }
   ];
 
   navbarTop = 70; // Posição inicial da navbar
 
   isScrolled = false;
+
+  constructor(private router: Router) {}
+
+  navigate(item: MenuItem) {
+    if (item.type === 'route') {
+      this.router.navigate([item.route]);
+    } else if (item.type === 'section') {
+      this.router.navigateByUrl(`${item.route}#${item.section}`);
+    }
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
