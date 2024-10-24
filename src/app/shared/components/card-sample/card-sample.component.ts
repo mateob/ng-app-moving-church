@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICardSample } from './card-sample.interface';
 
 @Component({
   selector: 'moch-card-sample',
@@ -7,7 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CardSampleComponent {
   showCardMiddle = false;
-  @Input('img') imgUrl: string = "";
+  private _data: ICardSample = { image: '', content: '', subTitle: '', title: '' };
+  @Input('data') set setData(data: ICardSample) { this._data = data };
+  public get data(): ICardSample { return this._data; }
 
   toggleCardMiddle() {
     this.showCardMiddle = !this.showCardMiddle;

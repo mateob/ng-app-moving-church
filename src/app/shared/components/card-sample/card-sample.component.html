@@ -1,30 +1,16 @@
 <div class="card-container">
   <div class="card" style="--bs-border-opacity: .5; background-size: cover;"
-    [ngStyle]="{'background-image': 'url(' + imgUrl + ')'}">
+    [ngStyle]="{'background-image': 'url(' + data.image + ')'}">
 
   </div>
   <div class="card-overlay">
-    <div class="card-header glass-backgroud">
+    <div class="card-header bg-glass">
       <div class="card-header-text">
-        <h3 class="card-title">Quartafeira</h3>
-        <span class="card-status">19:30</span>
+        <h3 class="card-title">{{ data.title }}</h3>
+        <span class="card-status">{{ data.subTitle }}</span>
       </div>
     </div>
-    <p class="card-description glass-backgroud">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-      blanditiis?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?
-      <br />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-      blanditiis?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?
-    </p>
+    <div class="card-description bg-glass" [innerHTML]="data.content">
+    </div>
   </div>
 </div>
-<!-- <div class="container">
-  <div class="top-div" style="background-color: aqua;">
-
-  </div>
-  <div class="bottom-div" style="background-color: blue;">
-
-  </div>
-</div> -->

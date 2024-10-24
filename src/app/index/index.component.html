@@ -1,19 +1,26 @@
 <section id="home">
   <moch-parallax-image></moch-parallax-image>
 </section>
-<section id="sc2">
-  <div class="text-light p-4" style="height: 550px;">
-    <h1>Texto Com imagem de fundo</h1>
-    Animação com sobrepozissão de imagens (daquele site)
+<moch-session-bg [bg]="'glass'" [back-divs]="2" [bg-divs-direction]="'left'">
+  <div>
+    <p>Texto dentro deste bloco</p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Teste</p>
   </div>
-</section>
+</moch-session-bg>
+<moch-session-bg [fluid]="true" [bg-divs-direction]="'rigth'">
+  Segunda session
+</moch-session-bg>
 <section id="cultos">
   <moch-cultos></moch-cultos>
 </section>
 <section id="message">
   <div class="testimony-contrainer">
     <moch-message-transition></moch-message-transition>
-    <div class="form-container glass-backgroud">
+    <div class="form-container bg-glass">
       <form class="row g-3">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Titulo</label>
