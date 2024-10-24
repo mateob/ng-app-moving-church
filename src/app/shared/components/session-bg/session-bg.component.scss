@@ -1,0 +1,53 @@
+.session {
+  position: relative;
+  padding: 40px 16px 40px 16px;
+  width: 100%;
+  min-width: 400px;
+  min-height: 200px;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: calc(100% + 40px);
+    padding: 20px;
+  }
+
+  &-bg {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    z-index: 1;
+    border: solid 2px #fff;
+    border-radius: var(--border-radius);
+  }
+
+  &-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    border: solid 2px #fff;
+    border-radius: var(--border-radius);
+    padding: 14px;
+  }
+}
+
+.bg-2 {
+  position: absolute;
+  top: 0px;
+}
+
+.dir-left {
+  left: 0px;
+}
+
+.dir-rigth {
+  left: 40px;
+}
+
+.bg-1 {
+  position: absolute;
+  top: 40px;
+}

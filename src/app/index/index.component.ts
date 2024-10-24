@@ -12,6 +12,7 @@ export class IndexComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        this.resetSession();
         this.scrollToSection();
       }
     });
@@ -24,11 +25,13 @@ export class IndexComponent implements AfterViewInit {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      const element = document.getElementById('home');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
     }
+  }
+
+  private resetSession(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 }
