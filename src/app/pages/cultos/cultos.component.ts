@@ -1,15 +1,5 @@
 import { Component } from '@angular/core';
-
-export interface CardFlip {
-  front: CardItem,
-  back: CardItem,
-  imgBg: string
-}
-export interface CardItem {
-  title: string,
-  subTitle: string,
-  content: string
-}
+import { ICardSample } from '../../shared/components/card-sample/card-sample.interface';
 
 @Component({
   selector: 'moch-cultos',
@@ -17,46 +7,30 @@ export interface CardItem {
   styleUrl: './cultos.component.scss'
 })
 export class CultosComponent {
-  cardList: CardFlip[] = [
+  cardList: ICardSample[] = [
     {
-      imgBg: 'assets/img/d1.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML <p>teste</p></p></div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
+      image: 'assets/img/d1.jpg',
+      title: 'Quarta 20hr',
+      subTitle: 'reflexão & Oração',
+      content: `<div>Teste de conteudo HTML <p>teste</p></p></div>`
     },
     {
-      imgBg: 'assets/img/d2.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
+      image: 'assets/img/d2.jpg',
+      title: 'Sábado 06hr',
+      subTitle: 'Tempo de Oração',
+      content: `<div>Teste de conteudo HTML</div>`
     },
     {
-      imgBg: 'assets/img/d3.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
+      image: 'assets/img/d3.jpg',
+      title: 'Sábado 20hr',
+      subTitle: 'Date - Culto Jovem',
+      content: `<div>Teste de conteudo HTML</div>`
     },
     {
-      imgBg: 'assets/img/d4.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
-    },
-    {
-      imgBg: 'assets/img/d1.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML <p>teste</p></p></div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
-    },
-    {
-      imgBg: 'assets/img/d2.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
-    },
-    {
-      imgBg: 'assets/img/d3.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
-    },
-    {
-      imgBg: 'assets/img/d4.jpg',
-      front: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>`, },
-      back: { title: 'Teste de Card', subTitle: 'Horario: 20:00', content: `<div>Teste de conteudo HTML</div>` }
+      image: 'assets/img/d4.jpg',
+      title: 'Domingo 19:30hr',
+      subTitle: 'Culto de Celebração',
+      content: `<div>Teste de conteudo HTML</div>`
     }
   ]
 }

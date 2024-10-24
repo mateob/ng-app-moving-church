@@ -11,13 +11,11 @@ export interface MenuItem { text: string; type: 'route' | 'section', route?: str
 export class MenuComponent {
   menuItems: MenuItem[] = [
     { text: 'Home', type: 'route', route: 'home' },
-    { text: 'Horarios', type: 'section', route: 'home', section: 'cultos' },
     { text: 'Sobre', type: 'route', route: 'pages/information' },
     { text: 'Nossa Historia', type: 'route', route: 'pages/timeline' },
-    { text: 'Eventos', type: 'section', route: 'home', section: 'sc2' },
     { text: 'Blog', type: 'route', route: 'pages/blog' },
-    { text: 'Envolva-se', type: 'section', route: 'home', section: 'message' },
-    { text: 'Contato', type: 'section', route: 'home', section: '' }
+    { text: 'Envolva-se', type: 'route', route: 'home' },
+    { text: 'Contato', type: 'route', route: 'home' }
   ];
 
   navbarTop = 70; // Posição inicial da navbar

@@ -9,12 +9,36 @@
   color: #fff !important;
 }
 
+:root {
+  --border-radius: 15px;
+}
+
 html {
   background-color: rgba(33, 37, 41, 1) !important;
 }
 
-.glass-backgroud {
+.bg-glass {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.bg-ligth {
+  color: rgb(27, 24, 24) !important;
+  background-color: #fff !important;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: rgb(27, 24, 24) !important;
+  }
+}
+
+.bg-dark {
+  background-color: rgba(33, 37, 41, 1) !important;
+  color: #fff !important;
 }
