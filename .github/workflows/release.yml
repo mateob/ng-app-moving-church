@@ -1,0 +1,59 @@
+name: Create Release PR
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types: [closed]
+
+jobs:
+  create_release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Bump version
+        id: version
+        run: |
+          # Extrai o tipo de commit para determinar o bump
+          commit_msg=$(git log -1 --pretty=%B)
+          if [[ "$commit_msg" == feat:* ]]; then
+            npm version minor --no-git-tag-version
+          elif [[ "$commit_msg" == chore:* || "$commit_msg" == test:* ]]; then
+            npm version patch --no-git-tag-version
+          elif [[ "$GITHUB_REF" == "refs/heads/master" ]]; then
+            npm version major --no-git-tag-version
+          else
+            echo "No version change needed"
+          fi
+          # Salva a nova versão
+          echo "new_version=$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+
+      - name: Commit and push version bump
+        if: steps.version.outputs.new_version
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(release): bump version to ${{ env.new_version }}"
+          git push origin HEAD
+
+      - name: Create Release PR
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: release/${{ env.new_version }}
+          pr_title: "Release ${{ env.new_version }}"
+          pr_body: "Automatic release for version ${{ env.new_version }}"
+          pr_draft: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
