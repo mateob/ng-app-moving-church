@@ -8,7 +8,7 @@ on:
       - 'test/*'
 
 jobs:
-  create_pr:
+  create:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,11 +33,13 @@ jobs:
       - name: Create a Pull Request to develop
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: ${{ github.ref_name }}
-          base: develop
+          branch: ${{ github.ref_name }}  # Nome da branch atual de onde o PR está sendo criado
+          base: develop                   # Branch de destino do PR
           title: "Auto PR from ${{ github.ref_name }}"
           body: |
             ### Commits incluídos neste PR:
             ${{ env.commit_messages }}
           draft: false
           token: ${{ secrets.GITHUB_TOKEN }}
+          # Assegura que a ação sempre tenta criar um PR, mesmo que não haja mudanças
+          create-branch: true
