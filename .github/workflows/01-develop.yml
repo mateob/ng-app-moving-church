@@ -1,4 +1,4 @@
-name: Auto PR to Develop
+name: Create PR to Develop
 
 on:
   push:
