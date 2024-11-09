@@ -6,4 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoaderService {
   public isLoading = new BehaviorSubject(false);
+
+  public startLoading(): void {
+    this.isLoading.next(true);
+  }
+
+  public finishLoading(): void {
+    this.isLoading.next(false);
+  }
 }

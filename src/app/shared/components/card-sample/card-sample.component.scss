@@ -4,13 +4,12 @@
 }
 
 .card-container {
-  margin: 10px;
   position: relative;
   padding: 10px;
   height: 100%;
   min-height: 380px;
-  min-width: 300px;
-  max-width: 400px;
+  width: 100%;
+  max-width: 300px;
   perspective: 1000px;
   overflow: hidden;
 
@@ -109,9 +108,10 @@
 }
 
 .container {
-  position: relative; // Para posicionar a div interna
-  width: 350px;
-  height: 400px; // Largura do container (ajuste conforme necessário)
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 400px;
 
   overflow: hidden;
 
@@ -131,17 +131,45 @@
 
   .bottom-div {
     position: absolute;
-    top: 60px; // Inicialmente atrás da div superior
+    top: 60px;
     left: 0;
     height: 250px;
     width: 100%;
-    transform: translateY(calc(100% + 10px)); // Esconde a div e adiciona 10px de espaçamento
-    transition: transform 0.7s ease-in-out; // Adiciona uma transição suave
-    opacity: 0; // Torna a div invisível inicialmente
+    transform: translateY(calc(100% + 10px));
+    transition: transform 0.7s ease-in-out;
+    opacity: 0;
   }
 
   &:hover .bottom-div {
-    transform: translateY(10px); // Mostra a div no hover
-    opacity: 1; // Torna a div visível no hover
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .card-header {
+    padding: 0.5em;
+  }
+
+  .card-title {
+    font-size: 0.9em;
+  }
+
+  .card-tagline,
+  .card-status {
+    font-size: 0.75em;
+  }
+
+  .card-description {
+    padding: 0.5em;
   }
 }

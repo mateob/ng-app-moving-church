@@ -2,7 +2,6 @@
   position: relative;
   padding: 40px 16px 40px 16px;
   width: 100%;
-  min-width: 400px;
   min-height: 200px;
 
   &-container {
@@ -50,4 +49,20 @@
 .bg-1 {
   position: absolute;
   top: 40px;
+}
+
+@media (max-width: 768px) {
+  .session {
+    padding: 20px 10px; // Ajuste de padding para dispositivos menores
+  }
+
+  .session-container {
+    padding: 10px;
+  }
+
+  .session-bg,
+  .session-content {
+    padding: 8px;
+    border-width: 1px; // Ajuste a borda para evitar excessos em telas pequenas
+  }
 }

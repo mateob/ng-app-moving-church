@@ -4,13 +4,24 @@
 
 .card-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
   grid-gap: 20px;
 }
 
 .calendar-container {
   display: inline-flex;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    padding: 30px 10px 0px 10px;
+  }
+
+  .card-list-container {
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-gap: 5px;
+  }
 }
 
 // .card-animation {

@@ -3,6 +3,11 @@
     display: grid;
     grid-template-columns: 30% auto;
     padding: 3em;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding: 1em;
+    }
   }
 
   &-info {
@@ -11,24 +16,33 @@
 
     & h1 {
       font-size: 22px;
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
     }
 
     & p {
       font-size: 16px;
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
     }
 
     &-image {
       padding: 10px;
+      @media (max-width: 768px) {
+        padding: 5px;
+      }
     }
 
-    &-church {
-      width: auto;
-      height: 100px;
-    }
-
+    &-church,
     &-address {
       width: auto;
       height: 100px;
+
+      @media (max-width: 768px) {
+        height: 80px;
+      }
     }
   }
 
@@ -38,17 +52,41 @@
     padding-left: 10%;
     padding-right: 10%;
 
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
     & h1 {
       font-size: 22px;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
     }
   }
 }
 
 .footer-container {
   margin-top: 60px;
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
 
   .footer-col {
     text-align: left;
     margin-bottom: 6px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.small-logo {
+  height: 100px;
+  @media (max-width: 768px) {
+    height: 80px;
   }
 }

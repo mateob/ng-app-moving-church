@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { DeviceDetectorService } from '../../service/device-detector.service';
 
 export interface MenuItem { text: string; type: 'route' | 'section', route?: string, section?: string }
 
@@ -19,10 +20,14 @@ export class MenuComponent {
   ];
 
   navbarTop = 70; // Posição inicial da navbar
+  public glassBackground: String = '';
+  public isMobile: Boolean = false;
 
   isScrolled = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private device: DeviceDetectorService) {
+    this.isMobile = this.device.isMobile();
+  }
 
   navigate(item: MenuItem) {
     if (item.type === 'route') {
