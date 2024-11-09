@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'moch-parallax-image',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './parallax-image.component.scss'
 })
 export class ParallaxImageComponent {
-  imageUrl = 'assets/backbround/bg-family.jpg';
+  private _imageUrl: String = '';
+  @Input('mc-img') set imageUrl(data: String) {
+    this._imageUrl = data;
+  }
+  public get imageUrl(): String { return this._imageUrl; }
 }

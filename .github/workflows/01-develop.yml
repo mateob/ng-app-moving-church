@@ -1,0 +1,54 @@
+name: Create PR to Develop
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+      - 'chore/*'
+      - 'test/*'
+
+jobs:
+  create_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get commit messages
+        id: commits
+        run: |
+          # Pega a lista de commits desde a última atualização na branch develop
+          git fetch origin develop
+          commits=$(git log origin/develop..HEAD --pretty=format:"- %s")
+          echo "commit_messages<<EOF" >> $GITHUB_ENV
+          echo "$commits" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check if there are commits to be pushed
+        run: |
+          # Verifica se há diferenças reais entre as branches
+          git fetch origin develop
+          diff=$(git rev-list --count origin/develop..HEAD)
+          echo "diff=$diff" >> $GITHUB_ENV
+          if [ $diff -eq 0 ]; then
+            echo "No changes to push. Exiting."
+            exit 0
+          fi
+
+      - name: Create a Pull Request to develop
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: ${{ github.ref_name }}  # Nome da branch atual de onde o PR está sendo criado
+          base: develop                   # Branch de destino do PR
+          title: "Auto PR from ${{ github.ref_name }}"
+          body: |
+            ### Commits incluídos neste PR:
+            ${{ env.commit_messages }}
+          draft: false
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { DeviceDetectorService } from '../../service/device-detector.service';
 
 @Component({
   selector: 'moch-logo',
@@ -6,11 +7,14 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   styleUrl: './logo.component.scss'
 })
 export class LogoComponent {
-  navbarTop = 60; // Posição inicial da navbar
+  public navbarTop!: number;
+  public isMobile: Boolean = false;
+  public isScrolled = false;
 
-  isScrolled = false;
-
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private device: DeviceDetectorService) {
+    this.isMobile = this.device.isMobile();
+    this.navbarTop = this.isMobile ? 0 : 60;
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -18,12 +22,12 @@ export class LogoComponent {
     const logoContainer = this.el.nativeElement.querySelector('.logo-container');
     const scrollTopLogo = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    this.isScrolled = scrollTopLogo >= 60; // Redimensiona quando atinge 60px do topo
+    this.isScrolled = scrollTopLogo >= this.navbarTop;
 
     if (this.isScrolled) {
-      logoContainer.style.top = '0'; // Ajusta o topo quando fixado
+      logoContainer.style.top = '0';
     } else {
-      logoContainer.style.top = '60px'; // Retorna ao topo original
+      logoContainer.style.top = `${this.navbarTop}px`;
     }
   }
 }

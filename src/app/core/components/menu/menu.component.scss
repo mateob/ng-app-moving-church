@@ -53,3 +53,9 @@ $base-delay: 0.2s;
     transform: translateX(0);
   }
 }
+
+@media (max-width: 768px) {
+  .menu-container {
+    height: 60px;
+  }
+}

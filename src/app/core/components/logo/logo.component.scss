@@ -2,11 +2,20 @@
   top: 60px;
   left: 80px;
   z-index: 1002;
+
+  @media (max-width: 768px) {
+    top: 0px;
+    position: fixed;
+  }
 }
 
 .logo-container {
   position: absolute;
   transition: all 0.8s ease;
+
+  @media (max-width: 768px) {
+    transition: none;
+  }
 
   &.fixed-top {
     position: fixed;
@@ -20,6 +29,14 @@
     opacity: 0;
     animation: slideImgOp 2s ease forwards;
     transform: translate(-40%, 0);
+
+    @media (max-width: 768px) {
+      height: 60px; // Ajusta o tamanho da imagem em dispositivos móveis
+      transition: none; // Remove a transição em dispositivos móveis
+      animation: none; // Remove a animação em dispositivos móveis
+      opacity: 1; // Garante que o logo fique visível
+      transform: none; // Remove o efeito de tradução para manter a posição
+    }
   }
 
   .small-logo {
