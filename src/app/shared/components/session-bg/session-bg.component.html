@@ -1,0 +1,11 @@
+<div class="session" [ngStyle]="{'padding-left': fluid ? '15%' : '20px', 'padding-right': fluid ? '15%' : '20px'}">
+  <div class="session-container">
+    <div class="session-bg bg-1 bg-glass" [ngClass]="[backImg !== '' ? '' : bg, bg1Direction]" *ngIf="backDivs >= 1">
+    </div>
+    <div class="session-bg bg-2 bg-glass" [ngClass]="[backImg !== '' ? '' : bg, bg2Direction]" *ngIf="backDivs == 2">
+    </div>
+    <div class="session-content" [ngClass]="[backImg !== '' ? '' : bg]">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
