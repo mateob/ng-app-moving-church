@@ -8,7 +8,7 @@ on:
       - 'test/*'
 
 jobs:
-  create:
+  create_pr:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +30,17 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Check if there are commits to be pushed
+        run: |
+          # Verifica se há diferenças reais entre as branches
+          git fetch origin develop
+          diff=$(git rev-list --count origin/develop..HEAD)
+          echo "diff=$diff" >> $GITHUB_ENV
+          if [ $diff -eq 0 ]; then
+            echo "No changes to push. Exiting."
+            exit 0
+          fi
+
       - name: Create a Pull Request to develop
         uses: peter-evans/create-pull-request@v5
         with:
@@ -41,5 +52,3 @@ jobs:
             ${{ env.commit_messages }}
           draft: false
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Assegura que a ação sempre tenta criar um PR, mesmo que não haja mudanças
-          create-branch: true
