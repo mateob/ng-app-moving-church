@@ -7,6 +7,8 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './index.component.scss'
 })
 export class IndexComponent implements AfterViewInit {
+  public imageIndex: String = 'assets/backbround/bg-family.jpg';
+
   constructor(private router: Router) {}
 
   ngAfterViewInit() {

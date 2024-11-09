@@ -95,3 +95,33 @@
     transform: translate(0, 0);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .parallax-image,
+  .parallax-shadow {
+    left: 5%;
+  }
+
+  .parallax-image {
+    margin-left: 6px;
+    width: 90%;
+  }
+  .parallax-shadow {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .parallax-image,
+  .parallax-shadow {
+    left: 4%;
+  }
+
+  .parallax-image {
+    margin-left: 10px;
+    width: 85%;
+  }
+  .parallax-shadow {
+    width: 85%;
+  }
+}
